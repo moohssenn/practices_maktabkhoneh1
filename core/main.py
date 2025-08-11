@@ -15,21 +15,40 @@ names_list = [
     {"id":8,"name":"reza"},
 ]
 
+
+list_costs = [
+    {"id":1,"description":"Housing","price":14.56},
+    {"id":2,"description":"Food","price":19.55},
+    {"id":3,"description":"Health","price":16.33},
+    {"id":4,"description":"Kids","price":17.44},
+    {"id":5,"description":"Pets","price":22.52},
+    {"id":6,"description":"Personal Development","price":12.66},
+    {"id":7,"description":"Technology","price":11.33},
+    {"id":8,"description":"Giving","price":9.00},
+]
+
+
+
+
+#    اگر صفحه اصلی را باز کرده بود
 @app.get("/")
 def root():
-    content={"message": "Hello World"}
+    content={"message": "This is a first project"}
     return JSONResponse(content=content,status_code=status.HTTP_202_ACCEPTED)
 
-@app.get("/names",status_code=status.HTTP_201_CREATED)
-def retrieve_names_list(q : str | None=None):
-    if q:
-        return [item for item in names_list if item["name"] == q]
-    return names_list
+#    لیست همه هزینه ها 
+@app.get("/costs",status_code=status.HTTP_201_CREATED)
+def retrieve_cost_list():
+    return list_costs
 
-@app.post("/names")
-def create_name(name:str):
-    name_obj={"id":random.randint(6,100),"name":name}
-    names_list.append(name_obj)
+
+# اضافه کردن به لیست هزینه ها
+@app.post("/costs")
+def create_new_cost(description:str,Price:float):
+    name_obj="sadasd"
+
+    #name_obj={"id":random.randint(6,100),"name":name}
+    #names_list.append(name_obj)
     return name_obj
 
 
@@ -53,9 +72,7 @@ def Update_name_detail(name_id:int,name:str,status_code=status.HTTP_200_OK ):
             return item
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail="Object Not found")    
 
-@app.get("/")
-def root():
-    return {"message": "Hello World"} 
+
 
 @app.delete("/names/{name_id}",status_code=status.HTTP_204_NO_CONTENT)
 def delete_name(name_id:int):

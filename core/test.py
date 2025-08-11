@@ -34,10 +34,16 @@ list_costs = [
     {"id":4,"description":"Kids","price":17.44},
     {"id":5,"description":"Pets","price":22.52},
     {"id":6,"description":"Personal Development","price":12.66},
-    {"id":7,"description":"reza","Technology":11.33},
-    {"id":8,"description":"reza","Giving":9.00},
+    {"id":7,"description":"Technology","price":11.33},
+    {"id":8,"description":"Giving","price":9.00},
 ]
 
+list_costs.sort(key=id)
 
-for x in names_list:
-    print(x['price']),
+for x in list_costs:
+    print(x['id'],x['description']),
+
+
+
+
+
