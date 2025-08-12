@@ -35,7 +35,8 @@ def create_new_cost(description:str,Price:float):
     max_id=max_id['id']+1
     cost_obj={"id":max_id,"description":description,"price":Price}
     list_costs.append(cost_obj)
-    return cost_obj
+    raise HTTPException(status_code=status.HTTP_201_CREATED,detail="New Cost Added")    
+    
 
 # جستجوی هزینه بر اساس شناسه
 @app.get("/costs/{cost_id}")
@@ -43,7 +44,6 @@ def retrieve_cost_list_detail(cost_id:int):
     for xx in list_costs:
         if xx["id"] == cost_id:
             return xx["description"],xx["price"]
-            
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail="Cost id Not found")    
     
 # برای بروز رسانی هزینه بر اساس شناسه
