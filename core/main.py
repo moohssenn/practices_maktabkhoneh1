@@ -4,18 +4,6 @@ import random
 
 app = FastAPI()
 
-names_list = [
-    {"id":1,"name":"ali"},
-    {"id":2,"name":"maryam"},
-    {"id":3,"name":"mohsen"},
-    {"id":4,"name":"aref"},
-    {"id":5,"name":"reza"},
-    {"id":6,"name":"reza"},
-    {"id":7,"name":"reza"},
-    {"id":8,"name":"reza"},
-]
-
-
 list_costs = [
     {"id":1,"description":"Housing","price":14.56},
     {"id":2,"description":"Food","price":19.55},
