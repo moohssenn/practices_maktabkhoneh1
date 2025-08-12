@@ -45,11 +45,13 @@ def retrieve_cost_list():
 # اضافه کردن به لیست هزینه ها
 @app.post("/costs")
 def create_new_cost(description:str,Price:float):
-    name_obj="sadasd"
+    max_id = max(list_costs, key=lambda d: d['id'])
+    max_id= max_id+1
+    
 
     #name_obj={"id":random.randint(6,100),"name":name}
     #names_list.append(name_obj)
-    return name_obj
+    return max_id
 
 
 
