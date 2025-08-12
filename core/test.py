@@ -62,7 +62,7 @@ def create_new_cost(description:str,Price:float):
 
     cost_obj={"id":max_id,"description":description,"price":Price}
     list_costs.append(cost_obj)
-    return max_id
+    return cost_obj
 
 
 
