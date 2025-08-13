@@ -76,4 +76,7 @@ for x in list_costs:
 
 
 # dsfsfsfsfsdfsdfsdf
+
+
 # asdasdasdsad
+# asdasdasdsad# asdasdasdsad# asdasdasdsad# asdasdasdsad
