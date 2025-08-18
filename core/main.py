@@ -2,9 +2,21 @@ from fastapi import FastAPI,status,HTTPException,Path
 from fastapi.responses import JSONResponse
 from schemas import CostsCreateSchema,CostsResponseSchema,CostsUpdateSchema
 from typing import List
+from contextlib import asynccontextmanager
+from database import Base,engine
 
 
-app = FastAPI()
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    print("Application statup")
+    Base.metadata.create_all(engine)
+    yield
+    print("Application shutdown")
+
+
+
+app = FastAPI(lifespan=lifespan)
 
 costs_list = [
     {"id":1,"description":"Housing","price":14.56},
