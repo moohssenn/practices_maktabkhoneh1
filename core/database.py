@@ -16,8 +16,6 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 # create base class for declaring tables
 Base = declarative_base()
 
-
-
 class Costs(Base):
     __tablename__ = "costs"
    
