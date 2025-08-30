@@ -1,4 +1,4 @@
 /core/test.py
 *.zip
 *.db
-test.py
+/core/database_test.py
