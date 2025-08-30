@@ -33,7 +33,6 @@ def retrieve_cost_list(q : int | None= Query(alias="search",default=None),db:Ses
 def create_new_cost(request : CostsCreateSchema,db:Session=Depends(get_db)):
     max_id = db.query(func.max(Costs.id)).scalar()
     if not max_id: max_id=0
-    print("aaaaaaaaaaaaaaaaaaaaaa",max_id)
     max_id = max_id+1
 
     new_cost=Costs(id=max_id,description=request.description,price=request.price)
